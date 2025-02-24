@@ -1,7 +1,7 @@
 // Displaya quick message in the console.
 console.log("ClydeBank Coffee Shop is now open!")
 
-//Th einventory object
+//The inventory object
 let menu = {
     inventory: {
         "Regular Coffee": 3.00,"Espresso": 3.50, "Cappuccino": 4.0,"Latte": 4.25
@@ -9,8 +9,16 @@ let menu = {
     populate: function(container) {
         for (let item in this.inventory)
         {
-            let price = this.inventory[item]
-            container.innerHTML += "<li>" + item + " - $" + price.toFixed(2) + "</li>"
+            let price = this.inventory[item].toFixed(2)
+
+            // Create a new li element
+            let li = document.createElement("li")
+
+            // Add text content to the li element
+            li.textContent = `${item} - $${price}`
+
+            // Append the li element to the container
+            container.appendChild(li)
         }
     }
 }
